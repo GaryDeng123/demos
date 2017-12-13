@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>try try</title>
+	<meta charset="utf-8">
+	<link href="E:/Deng/web/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+		#container{
+			height: 60vh;
+			padding: 0 200px 0 200px;
+			margin-top: 0;
+		}
+		.navbar{
+			margin-bottom: 0px;
+		}
+		#main{
+			float: left;
+			width: 100%;
+			position: relative;
+/*			background-color: grey;*/
+			height: 100%;
+		}
+		#left{
+			float: left;
+			width: 200px;
+			margin-left: -100%;
+			left: -200px;
+			position: relative;
+			background-color: #CD2222;
+			height: 100%;
+		}
+		#right{
+			float: left;
+			width: 200px;
+			margin-left: -200px;
+			right: -200px;
+			position: relative;
+			background-color: #B52121;
+			height: 100%;
+		}
+		.myWrapper{
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);
+		}
+
+
+		footer{
+			width: 100%;
+			background-color: #DDD;
+			height: 100px;
+			line-height: 100px;
+			text-align: center;
+		}
+
+		#myNav{
+			/*line-height: 100px;*/
+			height: 100px;
+			background: #222;
+			position: relative;
+		}
+		#myNav>div{
+			position: relative;
+		}
+		#myNav>div{
+			/*float: left;*/
+
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+		#myNav>div:first-child>a{
+			color: white;
+			font-size:20px;
+
+		}
+		#myNav>div:first-child{
+			left: 20px;
+		}
+		#myNav>div:last-child{
+			right: 20px;
+			height: 100%;
+			line-height: 100px;
+		}
+
+/*		#myNav>div>ul{
+			position: absolute;
+			right: 20px;
+			top: 50%;
+			/*transform: translateY(-50%);*/
+		/*}*/
+		#myNav>div>ul>li{
+			float: left;
+			height: 100px;
+			list-style: none;
+		}
+		#myNav>div>ul>li.active>a{
+			color: white;
+		}
+		#myNav>div>ul>li.active{
+			background-color: #000;
+		}
+		#myNav>div>ul>li>a{
+			text-decoration: none;
+			padding-left:20px;
+			padding-right: 20px; 
+			font-size: 16px;
+			color: grey;
+		}
+		
+/*		#myNav>div>ul>li>a:hover{
+			text-decoration: none;
+			font-size: 16px;
+			color: white;
+		}*/
+
+		form{
+			padding-right: 10%;
+		}
+	
+
+	</style>
+
+<link rel="stylesheet" type="text/css" href="E:\Deng\web\bootstrap-3.3.7-dist\css\bootstrap.min.css">
+
+</head>
+
+
+
+<body>
+	<nav class="navbar navbar-inverse" role="nabigation" style="margin-bottom:0px; border-radius:0px;">
+		<div class="navbar-header">
+			<a href="#" class="navbar-brand">Hello</a>
+		</div>
+		<div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">ios</a></li>
+				<li><a href="#">android</a></li>
+				<li><a href="#">dropdown</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div id="container">
+		<div id="main">
+			<div class="myWrapper">
+				
+
+				<table class="table table-bordered table-hover">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>first name</th>
+							<th>last name</th>
+							<th>username</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td >1</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td>@mojito</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td>@TwBootstrap</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td colspan="2">Larry the Bird</td>
+							<td>@twitter</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- <p>afterDiv</p> -->
+		</div>
+		<div id="left"> 
+			<div class="myWrapper">
+				<p>try me</p>
+				<p>what do you think of me?</p>
+				<p>hello world!</p>
+			</div>
+		</div>
+		<div id="right"></div>
+	</div>
+
+	<nav id="myNav">
+		<div id="navheader">
+			<a>Hello</a>
+		</div>
+		<div>
+			<ul id="myUl">
+				<li  class="active" ><a href="#">ios</a></li>
+				<li><a href="#">android</a></li>
+				<li><a href="#">dropdown</a></li>
+			</ul>
+		</div>
+	</nav>
+
+			<ul id="sortthis">
+				<li><a href="#">538</a></li>
+				<li><a href="#">345</a></li>
+				<li><a href="#">100</a></li>
+			</ul>
+
+
+<form class="form-horizontal" role="form" name="loginForm" action="#" onsubmit="return check();">
+	  <div class="form-group">
+	    <label for="email" class="col-sm-2 control-label">Email</label>
+	    <div class="col-sm-10">
+	      <input type="text" class="form-control " id="email" name="email" placeholder="请输入电子邮件" onblur="checkEmail();">
+	      <span id="emailinfo"></span>
+	    </div>
+	    
+	  </div>
+	  <div class="form-group">
+	    <label for="password" class="col-sm-2 control-label">密码</label>
+	    <div class="col-sm-10">
+	      <input type="text" class="form-control" id="password" name="password" placeholder="请输入密码" 
+	      onblur="checkPassword();">
+	      <span id="passwordinfo"></span>
+	    </div>
+	    
+	  </div>
+	  <div class="form-group">
+	    <div class="col-sm-offset-2 col-sm-10">
+	      <div class="checkbox">
+	        <label>
+	          <input type="checkbox">请记住我
+	        </label>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <div class="col-sm-offset-2 col-sm-10">
+	      <button type="submit" class="btn btn-default">登录</button>
+	    </div>
+	  </div>
+</form>
+
+
+
+
+
+	<footer>contact me</footer>
+</body>
+
+<script src="E:\Deng\web\CV\jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+  //	jquery的写法
+		// $("#myUl li").bind("mouseover", function () {
+  //       var index = $(this).index();//获取序号
+  //       $("#myUl li").eq(index).addClass("active").siblings().removeClass("active");
+  //   });
+  //   
+  //   
+    // 原生js
+    window.onload=function(){
+  		var myUl = document.getElementById("myUl");
+  		var mylis = myUl.getElementsByTagName("li");
+  		var i = 0;
+  		for(i;i<mylis.length;i++){
+  			mylis[i].index = i;
+  			
+
+  			mylis[i].onmouseover = function(){
+  				// console.log("you've clicked " + this.index);
+  				for(var j = 0; j<mylis.length; j++){
+		  			if (mylis[j].getAttribute("class") == "active") {
+		  				var activeindex = j;//mark active's index
+		  			}
+  				}
+  				mylis[activeindex].setAttribute("class","");
+  				mylis[this.index].setAttribute("class","active");
+  			}
+  		}
+  	}();
+
+
+//sort ul's quence
+//my dumb method
+  		// 	var a = document.getElementById("sortthis");
+
+  		// 	var kids = a.children;
+  		// 	var kidsArr = [];
+  		// 	for(var i = 0; i < kids.length; i++){
+  		// 		var k = kids[i].innerHTML;
+  		// 		var kNum = getNum(k);
+  		// 		kidsArr.push(k);
+  		// 	}
+
+  		// 	kidsArr.sort(function(n,m){
+  		// 		var s = getNum(n);
+  		// 		var t = getNum(m);
+  		// 		if (s<t) return -1;
+  		// 		else return 1;
+  		// 	})
+
+  		// 	for(var i = 0;i < kids.length;i++){
+  		// 		kids[i].innerHTML = kidsArr[i]
+  		// 	}
+  		// }
+
+
+//book's method
+function getthissss(){
+	var a = document.getElementById("sortthis");
+
+	var kids = [];
+	for(var i = a.firstChild; i != null; i = i.nextSibling){
+		if(i.nodeType == 1) /*Node.ELEMENT_NODE*/
+			kids.push(i);//把这个元素节点入栈
+	}
+
+	kids.sort(function(n,m){
+		var s = getNum(n.innerHTML);
+		var t = getNum(m.innerHTML);
+		if(s>t) return 1;
+		else return -1;
+	});
+
+	for(var i = 0; i < kids.length; i++){
+		a.appendChild(kids[i]);
+	}
+}
+
+
+//get Num in String
+  		function getNum(text){
+			var value = text.replace(/[^0-9]/ig,""); 
+			return value;
+		}
+
+
+function getNextTextNode(node){
+	if (node.nodeType == 3) {
+		return node;
+	}
+	if(node.nextSibling){
+		return getNextTextNode(node.nextSibling);
+	}
+	return null
+}
+
+function getText(node){
+	if(node.nodeType == 3)
+		console.log(node.data);
+	else if(node.nodeType == 1){
+		for(var m = node.firstChild; m !== null ; m = m.nextSibling){
+			getText(m);
+		}
+	}
+}
+
+function $(id){
+	return document.getElementById(id);
+}
+
+
+/**
+ * 这段是check了之后再框的后面显示信息
+ * 
+ */
+function check(){       
+
+      var flag1 = checkEmail();
+      var flag2 = checkPassword();
+      var flag = flag1&&flag2;
+      return flag;
+
+}
+
+ function checkEmail() {  //校验Email  
+       $('emailinfo').innerHTML = "";  
+       var email = $('email').value;  
+       if(email == "") {  
+            $('emailinfo').innerHTML = "× Email值不能为空";  
+            $("emailinfo").style.color = "#a94442"
+            changeToError($("email"));
+            return false;  
+       }  
+         
+       else if(email.indexOf('@') == -1 || email.indexOf('.') == -1) {  
+            $('emailinfo').innerHTML = "Email必须包含@和.";
+            $("emailinfo").style.color = "#a94442"
+            changeToError($("email"));  
+            return false;  
+       }  
+
+       else{
+       	    $("emailinfo").innerHTML = "√";  
+       	    changeToSuccess($("email"));
+          	return true;  
+       }
+   }  
+     
+   function checkPassword() {  //校验密码  
+      $('passwordinfo').innerHTML = "";  
+      var password = $('password').value;  
+      if(password == "") {  
+          $("passwordinfo").innerHTML = "× 密码不能为空";  
+          $("passwordinfo").style.color = "#a94442"
+          changeToError($("password"));
+          return false;  
+      }
+      else{
+      	$("passwordinfo").innerHTML = "√";  
+      	changeToSuccess($("password"));
+          return true;  
+      }  
+  }
+
+    function changeToError(node){
+  	var parent = node.parentNode.parentNode;
+  	// var classString = parent.getAttribute("class");
+   //  classString = classString + " has-error";
+    parent.setAttribute("class","form-group  has-error");
+  }
+
+  function changeToSuccess(node){
+  	var parent = node.parentNode.parentNode;
+  	// var classString = parent.getAttribute("class");
+   //  classString = classString + " has-success";
+    parent.setAttribute("class","form-group  has-success");
+  }
+
+
+/**
+ * 这段是check了之后在placeholder里显示信息
+ * 
+ *
+function check(){
+    
+    if (!(checkEmail()&&checkPassword()))
+    	return false;
+
+}
+
+ function checkEmail() {  //校验Email  
+  
+       var email = $('email').value;  
+       if(email == "") {  
+            $('email').setAttribute("placeholder","Email值不能为空");  
+            changeToError($("email"));
+            return false;  
+       }  
+         
+       if(email.indexOf('@') == -1 || email.indexOf('.') == -1) {  
+            $('email').setAttribute("placeholder","Email必须包含@和.");  
+            changeToError($("email"));
+            return false;  
+       }  
+   }  
+     
+   function checkPassword() {  //校验密码  
+      var password = $('password').value;  
+      if(password == "") {  
+          $("password").setAttribute("placeholder","密码不能为空");  
+          changeToError($("password"));
+          return false;  
+      }  
+  }
+
+  function changeToError(node){
+  	var parent = node.parentNode.parentNode;
+  	var classString = parent.getAttribute("class");
+    classString = classString + " has-error";
+    parent.setAttribute("class",classString);
+  }
+
+*
+*
+**/
+
+
+	</script>
+</html>
+
