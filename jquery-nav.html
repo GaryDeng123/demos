@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>123</title>
+	<style type="text/css">
+	*{
+		margin:0;
+		padding: 0
+	}
+		ul{
+			list-style: none;
+			padding: 0px;
+		}
+		a{
+			text-decoration: none;
+			color:black;
+			display: block;
+		}
+		.main{
+			float: left;
+			cursor: pointer;
+		}
+		.wrapper{
+			height: 50px;
+			position: fixed;
+			top: 0px;
+			right: 0px;
+		}
+		.main>a{
+			background-color: black;
+			color:white;
+			width: 200px;
+			height: 40px;
+			text-align: center;
+			line-height: 40px;
+			/*padding: 20px 40px;*/
+		}
+		.main>.active,.active>a{
+			background-color: white;
+			color:#000;
+		}
+		.ho-active>a{
+			background-color: grey;
+			color:#000;
+		}
+		.nav0{
+			background-color: #000;
+		}
+		.nav0>li{
+			width: 200px;
+		}
+		.main>.main-on{
+			background-color: rgba(0,0,0,0.7);
+		}
+
+		.nav2{
+			display: none;
+			/*margin-top:20px;*/
+			background-color: grey;
+			text-align:center;
+			width: 200px;
+		}
+		.nav2 li {
+			height: 30px;
+		}
+		.nav2 li a{
+			width: 100%;
+			height: 30px;
+			line-height: 30px;
+		}
+		.nav3{
+			display: none;
+			position: relative;
+			right: -200px;
+			top: -30px;
+			background-color: grey;
+		}
+
+
+		.Hi{
+			margin-top: 40px;
+			height: 100vh;
+			width: 100%;
+			background-color: red;
+		}
+		.IOS{
+			margin-top: 40px;
+			height: 100vh;
+			width: 100%;
+			background-color: blue;
+		}
+		.Andoind{
+			margin-top: 40px;
+			height: 100vh;
+			width: 100%;
+			background-color: green;
+		}
+
+	</style>
+</head>
+<body>
+	<script src="jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+	//这是实现二级联动的一个效果
+	$(document).ready(function(){
+	// 	var _this1;
+	// 	$(".main").hover(function(){
+	// 		_this1 = $(this);
+	// 		$(".nav2>li").hover(function(){
+	// 			$(this).children(".nav3").show();
+	// 		},function(){
+	// 			$(this).children(".nav3").hide();
+	// 		});
+	// 	}, function(){
+	// 		_this1.children(".nav2").hide();
+	// 	});		
+	// });
+
+		var _this1;
+		$(".main").hover(function(){
+			_this1 = $(this);
+			_this1.addClass("ho-active");
+		}, function(){
+			_this1.removeClass("ho-active");
+		});		
+	});
+				
+	// 
+	// 下面是实现点击之后跳转到某处
+	// 
+	// 
+	// scrollTop 是该元素，被浏览器卷走的高度,通俗而言，就是因为滚动条的下拉，导致元素的一部分被浏览器的头部遮掉。而这一部分就是scrollTop的值。
+	// offset()则是该元素距离文档顶部的的距离。这里一定要注意是文档的顶部的距离，而不是说浏览器顶部的距离。
+
+		$(document).ready(function(){
+			var arrTop = [];
+			var content = $(".content");
+			// console.log(content.eq(0).offset().top);
+			for(var i = 0;i <content.length;i++) {
+				// console.log(content.eq(i).offset().top);
+				arrTop.push(content.eq(i).offset().top);
+			}
+			console.log(arrTop);
+		$(".main").bind("click",function(){
+			var _index = $(this).index();
+			console.log(_index);
+			var _top = arrTop[_index];
+			console.log(_top);
+			$("html,body").animate({
+				scrollTop: _top
+			},500);
+		});
+
+		$(window).scroll(function(){
+			var _top = $(this).scrollTop();
+			if (_top>arrTop[0]&&_top<arrTop[1]) {
+				var _thisli = $(".main").eq(0);
+				_thisli.addClass("active");
+				_thisli.siblings().removeClass("active");
+			} else if (_top>arrTop[1]&&_top<arrTop[2]) {
+				var _thisli = $(".main").eq(1);
+				_thisli.addClass("active");
+				_thisli.siblings().removeClass("active");
+			} else if (_top>=arrTop[2]){
+				var _thisli = $(".main").eq(2);
+				_thisli.addClass("active");
+				_thisli.siblings().removeClass("active");
+			}
+		})
+
+	});
+	</script>
+	<div class="wrapper">
+		<ul class="nav0">
+		<li class="main">
+			<a>Hi</a>
+			<ul class="nav2">
+				<li>
+					<a href="#">1</a>
+					<ul class="nav3">
+						<li><a href="#">11</a></li>
+						<li><a href="#">12</a></li>
+						<li><a href="#">13</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">1</a>
+					<ul class="nav3">
+						<li><a href="#">14</a></li>
+						<li><a href="#">156</a></li>
+						<li><a href="#">16</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">1</a>
+					<ul class="nav3">
+						<li><a href="#">17</a></li>
+						<li><a href="#">18</a></li>
+						<li><a href="#">19</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li class="main">
+			<a>IOS</a>
+			<ul class="nav2">
+				<li>
+					<a href="#">1</a>
+					<ul class="nav3">
+						<li><a href="#">1</a></li>
+						<li><a href="#">1</a></li>
+						<li><a href="#">1</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">1</a>
+					<ul class="nav3">
+						<li><a href="#">1</a></li>
+						<li><a href="#">1</a></li>
+						<li><a href="#">1</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">1</a>
+					<ul class="nav3">
+						<li><a href="#">1</a></li>
+						<li><a href="#">1</a></li>
+						<li><a href="#">1</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li class="main">
+			<a>Andoind</a>
+			<ul class="nav2">
+				<li><a href="#">1</a></li>
+				<li><a href="#">1</a></li>
+				<li><a href="#">1</a></li>
+			</ul>
+		</li>
+		
+	</ul>
+	</div>
+	
+
+		<div class="Hi content">123</div>
+
+		<div class="IOS content">3456</div>
+
+		<div class="Andoind content">567</div>
+
+</body>
+</html>
