@@ -1,0 +1,32 @@
+<!DOCTYPEhtml>
+ 
+<html>
+ 
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>ejs测试</title>
+
+		<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+
+</head>
+ 
+<body>
+ 
+ <div style="margin: 50px auto; height:100px; width:200px" >
+	<h2>登陆成功……</h2>
+ 
+<!--<%%>:ejs的语法-->
+ 
+	<p style="margin-top:20px;">Hi <%=name%></p>
+	<p>正在跳转…</p>
+
+	<script type="text/javascript">
+		var timeout = setTimeout(function(){
+			window.location.href = '/ok';
+		},1500);
+	</script>
+
+ </div>
+</body>
+
+</html>

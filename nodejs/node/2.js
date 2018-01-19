@@ -9,11 +9,14 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var ejs = require('ejs');
 
+var user = 'admin';
+
 //2.设置环境变量
 app.set('port',process.env.PORT||8001);
 app.set('views',__dirname + '/public');
 // console.log(__dirname);
 app.set('view engine','html') ;
+app.set('viewengine','ejs');
 app.engine('html',ejs.__express);
 
 //3.注册中间件
@@ -52,7 +55,10 @@ app.post('/login',function(req,res){
 		// console.log("password:" + users[i].password);
 		if ((users[i].name === name) &&(users[i].password === password)) {
 			// res.send("登录成功...");
-			res.redirect('/ok');
+			user = name;
+			res.render('home.ejs',{name:user});
+
+			// res.redirect('/ok');
 			
 		}
 	}
@@ -65,7 +71,28 @@ app.get('/ok',function(req,res){
 	// var filename = path.join(__dirname,'htmls/','tast07.html');
 	// var login_html = htmlRender.htmlRender(filename);
 	// res.send(login_html);
-	res.render('tast07');
+	// 
+	// render html的
+	// res.render('tast07');
+	// render ejs的动态的
+	res.render('index.ejs',{name:user});
+});
+
+//测试ajax
+app.get('/ajax',function(req,res){
+	// res.writeHead(200,{'Content-Type' : 'text/plain; charset=utf-8'});
+	// res.end("收到了您的ajax并返回该notice!!");
+	res.render('ajax');
+});
+app.get('/ajax_res',function(req,res){
+	res.writeHead(200,{'Content-Type' : 'text/plain; charset=utf-8'});
+	res.end("收到了您的ajax并返回该notice!!");
+});
+
+
+//测试ejs
+app.get('/ejs',function(req,res){
+	res.render('home.ejs',{name:"lucas"});
 });
 
 //5.服务器启动

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ajax</title>
+</head>
+<body>
+	<button id="btn">测试my ajax</button>
+	
+	<script type="text/javascript">
+		var btn = document.getElementById("btn");
+		btn.onclick = function(){
+			var ajaxObj = new XMLHttpRequest();
+			ajaxObj.open('get','/ajax_res');
+			ajaxObj.send();
+			ajaxObj.onreadystatechange = function(){
+				if (ajaxObj.readyState == 4 && ajaxObj.status == 200) {
+					console.log(">>>>");
+					alert("success!");
+				}
+			}
+		}
+
+	</script>
+</body>
+</html>
